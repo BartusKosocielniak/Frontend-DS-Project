@@ -4,6 +4,7 @@
 
             <PromotionTile v-bind:promotion="promotion" />
         </RouterLink>
+        sdfdsfsdf
     </div>
 </template>
 

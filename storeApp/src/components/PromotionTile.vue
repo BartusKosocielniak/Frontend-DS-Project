@@ -1,7 +1,7 @@
 <template>
    <div :style="contStyle">
-      <h3>{{ this.promotion.header }}</h3>
-      <h2>{{ this.promotion.description }}</h2>
+      <h3 class="img-text">{{ this.promotion.header }}</h3>
+      <h2 class="img-text">{{ this.promotion.description }}</h2>
    </div>
 </template>
 
@@ -22,10 +22,16 @@ export default {
 
          return {
             background: `url(${imageUrl})`,
+            backgroundPosition: `0%`
          };
       },
    },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.img-text{
+   color: #fff;
+   text-decoration: ;
+}
+</style>

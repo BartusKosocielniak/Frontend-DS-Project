@@ -40,12 +40,36 @@ const promotion = {
 
     // tu zapytania do serwera z pomocą naszego api
     actions: {
-        FETCH_PROMOTION({ state, commit, getters }, promotionId) {
- //todo
- // cel tej akcji to pobranie danych promocji oraz danych jej produktów i złożenie w całość
- // można tego dokonać na serwerze, dodając kolejny get, albo na kliencie, łącząc dane uzyskane z dotychczasowych getów
+        async FETCH_PROMOTION({ state, commit, getters }, promotionId) {
 
-}
+            //todo - tutaj też trzeba coś zrobić generalnei zebt byla promocja tylko o podanym id
+            
+            try {
+                commit("SET_PROMOTION_LOADING", true)
+                const fullProducts = [];
+
+                // Iteracja - czekamy na każdy produkt po kolei
+
+                for (const productId of data.items) {
+                    const product = await getProduct(productId);
+                    fullProducts.push(product);
+                }
+
+                // Łączymy dane promocji (header, color itp.) z pełnymi obiektami produktów
+
+                const returnObject = {
+                    ...data,
+                    items: fullProducts
+                };
+
+                commit("SET_PROMOTION_OBJECT", returnObject);
+            } catch (error) {
+                commit("SET_PROMOTION_ERROR", "Nie udało się pobrać produktów.");
+            } finally {
+                commit("SET_PROMOTION_LOADING", false);
+            }
+
+        }
     }
 }
 

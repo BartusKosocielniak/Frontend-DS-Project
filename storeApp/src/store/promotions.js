@@ -1,4 +1,5 @@
 import { getPromotions } from "@/api"
+import { createLogger } from "vuex"
 const promotions = {
 
     //state
@@ -52,10 +53,12 @@ const promotions = {
 
             getPromotions()
                 .then(data => {
-                    commit("SET_PROMOTIONS_LIST", data.promotions)
+                    commit("SET_PROMOTIONS_LIST", data)
+                    console.log("actions: " + data)
                 })
                 .catch(error => {
-                   commit("SET_PROMOTIONS_ERROR", "server error!!!")
+                   commit("SET_PROMOTIONS_ERROR", "server error!!!" + error)
+                   console.log(error)
                 })
                 .finally(() => {
                    commit("SET_PROMOTIONS_LOADING", false)
