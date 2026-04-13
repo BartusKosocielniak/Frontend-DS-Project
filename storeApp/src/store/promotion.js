@@ -17,10 +17,10 @@ const promotion = {
         SET_PROMOTION_OBJECT(state, newPromotionObject) {
             state.promotionObject = newPromotionObject
         },
-        SET_PROMOTIONS_LOADING(state, loading) {
+        SET_PROMOTION_LOADING(state, loading) {
             state.promotionsLoading = loading
         },
-        SET_PROMOTIONS_ERROR(state, error) {
+        SET_PROMOTION_ERROR(state, error) {
             state.promotionsError = error
         }
     },
@@ -30,10 +30,10 @@ const promotion = {
         GET_PROMOTION_OBJECT(state) {
             return state.promotionObject
         },
-        GET_PROMOTIONS_LOADING(state) {
+        GET_PROMOTION_LOADING(state) {
             return state.promotionsLoading
         },
-        GET_PROMOTIONS_ERROR(state) {
+        GET_PROMOTION_ERROR(state) {
             return state.promotionsError
         }
     },
@@ -42,10 +42,11 @@ const promotion = {
     actions: {
         async FETCH_PROMOTION({ state, commit, getters }, promotionId) {
 
-            //todo - tutaj też trzeba coś zrobić generalnei zebt byla promocja tylko o podanym id
+            
             
             try {
                 commit("SET_PROMOTION_LOADING", true)
+                const data = await getPromotion(promotionId)
                 const fullProducts = [];
 
                 // Iteracja - czekamy na każdy produkt po kolei

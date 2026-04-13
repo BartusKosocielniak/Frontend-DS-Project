@@ -16,6 +16,7 @@ export default {
 
     }
 }
+// ten zasrany loader do zrobienia 
 </script>
 
 <style lang="scss" scoped></style>

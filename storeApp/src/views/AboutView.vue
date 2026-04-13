@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        Chuje muje i dzikie weze
     </div>
 </template>
 

@@ -1,7 +1,6 @@
 <template>
   <Header></Header>
-  <div  class="nav">
-  
+  <div  class="main">
     <RouterView/>
   </div>
   <Footer></Footer>
@@ -17,6 +16,10 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
+.main{
+  height: 80vh;
+}
+
 
 </style>

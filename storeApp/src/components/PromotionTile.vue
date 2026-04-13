@@ -32,6 +32,6 @@ export default {
 <style scoped>
 .img-text{
    color: #fff;
-   text-decoration: ;
+   text-decoration: none;
 }
 </style>

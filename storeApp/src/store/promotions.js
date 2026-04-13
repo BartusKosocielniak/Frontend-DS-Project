@@ -61,6 +61,7 @@ const promotions = {
                    console.log(error)
                 })
                 .finally(() => {
+                    console.log("kocham PIS")
                    commit("SET_PROMOTIONS_LOADING", false)
                 })
         }

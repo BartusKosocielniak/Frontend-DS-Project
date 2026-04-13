@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        Womp womp 404
     </div>
 </template>
 
