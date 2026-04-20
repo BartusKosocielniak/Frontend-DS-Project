@@ -21,11 +21,8 @@ export default {
     },
 
     mounted() {
-        this.promotionLoading = this.$store.getters.GET_PROMOTIONS_LOADING
+        // this.promotionLoading = this.$store.getters.GET_PROMOTIONS_LOADING
         this.$store.dispatch("FETCH_PROMOTIONS");
-        //todo usunac zaraz ale testowo
-        this.$store.dispatch("FETCH_PROMOTION", 1)
-        this.$store.dispatch("FETCH_PROMOTION", 1)
     },
     computed: {
         promotionsList() {

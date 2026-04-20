@@ -18,7 +18,7 @@
 
 <style lang="css" scoped>
 .main{
-  height: 80vh;
+  min-height: 80vh;
 }
 
 

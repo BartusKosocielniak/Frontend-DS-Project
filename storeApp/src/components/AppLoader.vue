@@ -18,7 +18,6 @@
 
 <script>
 export default {
-//todo zrob logike do loadera i dodaj jakos do projektu AI
 }
 </script>
 
