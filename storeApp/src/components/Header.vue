@@ -1,8 +1,13 @@
 <template>
     <div class="nav">
-        <RouterLink class="nav-element" to="/" exact>Home</RouterLink>
-        <RouterLink class="nav-element" to="/about">About</RouterLink>
-        <RouterLink class="nav-element" to="/nnn">Not found</RouterLink>
+        <div class="routing">
+            <RouterLink class="nav-element" to="/" exact>Home</RouterLink>
+            <RouterLink class="nav-element" to="/about">About</RouterLink>
+            <RouterLink class="nav-element" to="/nnn">Not found</RouterLink>
+        </div>
+        <div class="register-header">
+            <RouterLink class="nav-element" to="/register">Register</RouterLink>
+        </div>
     </div>
 </template>
 
@@ -14,11 +19,16 @@ export default {
 
 <style lang="css" scoped>
     .nav{
+        display: flex;
+        justify-content: space-between;
         height: 50px;
         width: 100%;
         display: flex;
         align-items: center;
         background-color: black;
+    }
+    .routing{
+        display: flex;
     }
     .nav-element:hover{
         background-color: #333;

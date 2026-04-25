@@ -16,9 +16,15 @@
   }
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 .main{
   min-height: 80vh;
+  max-height: 80vh;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 

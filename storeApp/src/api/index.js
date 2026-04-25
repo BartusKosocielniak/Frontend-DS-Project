@@ -15,6 +15,21 @@ const get = (url) => new Promise((resolve, reject) => {
 
 })
 
+const post = (url, userObject) => new Promise((resolve, reject) => {
+    
+    setTimeout(() => {
+        axios.post(url, userObject, { withCredentials: true }) // nagłówek obsługiwany na serwerze
+            .then(response => {
+                console.log("data", response.data);
+                resolve(response.data)
+            })
+            .catch(error => {
+                reject(error)
+            })
+
+    }, 1000);
+
+})
 
 // const get = async (url) => {
 //  try {
@@ -40,11 +55,13 @@ const getPromotion = (id) => get(`http://localhost:8080/promotion/${id}`)
 
 const getProduct = (id) => get(`http://localhost:8080/product/${id}`)
 
+const registerUser = (userObject) => post(`http://localhost:8080/registerUser`, userObject);
 
 export {
 
     getPromotions,
     getPromotion,
-    getProduct
+    getProduct,
+    registerUser
     //tu będą pozostałe metody
 }

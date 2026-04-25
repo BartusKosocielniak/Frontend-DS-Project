@@ -22,7 +22,9 @@ export default {
 
          return {
             background: `url(${imageUrl})`,
-            backgroundPosition: `0%`
+            backgroundPosition: `0%`,
+            margin: "10px",
+            padding: "20px",
          };
       },
    },
@@ -31,6 +33,7 @@ export default {
 
 <style scoped>
 .img-text{
+
    color: #fff;
    text-decoration: none;
 }
