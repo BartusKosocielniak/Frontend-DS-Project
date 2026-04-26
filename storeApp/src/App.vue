@@ -24,7 +24,7 @@ export default {
 <style lang="css">
 .main {
 	min-height: 80vh;
-	max-height: 80vh;
+	/* max-height: 80vh; */
 }
 * {
 	margin: 0;

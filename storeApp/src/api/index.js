@@ -79,6 +79,7 @@ const logoutUser = () => post(`http://localhost:8080/logoutUser`);
 
 const getCurrentUser = () => get(`http://localhost:8080/getCurrentUser`);
 
+const getProducts = () => get(`http://localhost:8080/products`)
 
 export {
 
@@ -88,6 +89,7 @@ export {
     registerUser,
     loginUser,
     logoutUser,
-    getCurrentUser
+    getCurrentUser,
+    getProducts
     //tu będą pozostałe metody
 }

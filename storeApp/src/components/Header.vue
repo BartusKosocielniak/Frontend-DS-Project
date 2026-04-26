@@ -5,14 +5,13 @@
 			<RouterLink class="nav-element" to="/" exact>Home</RouterLink>
 			<RouterLink class="nav-element" to="/about">About</RouterLink>
 			<RouterLink class="nav-element" to="/nnn">Not found</RouterLink>
+            <RouterLink class="nav-element" to="/search">Search</RouterLink>
 		</div>
-        <AppLoader v-show="userLoading" />
 		<div class="register-header" v-show="!user && !userLoading">
 			<RouterLink class="" to="/register"><button>Register</button></RouterLink>
 			<RouterLink class="" to="/login"><button>Login</button></RouterLink>
 		</div>
 		<div class="register-header" v-show="user && !userLoading">
-			<AppLoader v-show="userLoading" />
 			<span>Welcome, {{ user }}!</span>
 			<button class="nav-element" @click="logout">Logout</button>
 		</div>

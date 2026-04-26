@@ -8,6 +8,7 @@ import AboutView from '@/views/AboutView.vue'
 import PromotionView from '@/views/PromotionView.vue'
 import RegisterView from '@/views/RegisterView.vue'
 import LoginView from '@/views/LoginView.vue'
+import SearchView from '@/views/SearchView.vue'
 
 //lazy load - renderuje się tylko gdy jest potrzebny a nie z góry
 
@@ -46,6 +47,11 @@ const router = createRouter({
 			name: 'LoginView',
 			component: LoginView,
 		},
+		{
+			path: '/search',
+			name: 'SearchView',
+			component: SearchView,
+		}
 	],
 })
 
