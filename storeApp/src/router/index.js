@@ -40,6 +40,11 @@ const router = createRouter({
 			name: 'RegisterView',
 			component: RegisterView,
 		},
+		{
+			path: '/login',
+			name: 'LoginView',
+			component: LoginView,
+		},
 	],
 })
 

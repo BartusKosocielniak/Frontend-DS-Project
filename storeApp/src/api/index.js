@@ -57,6 +57,12 @@ const getProduct = (id) => get(`http://localhost:8080/product/${id}`)
 
 const registerUser = (userObject) => post(`http://localhost:8080/registerUser`, userObject);
 
+const loginUser = (userObject) => post(`http://localhost:3000/loginUser`, userObject);
+const logoutUser = () => post(`http://localhost:3000/logoutUser`);
+
+const getCurrentUser = () => get(`http://localhost:3000/getCurrentUser`);
+
+
 export {
 
     getPromotions,
