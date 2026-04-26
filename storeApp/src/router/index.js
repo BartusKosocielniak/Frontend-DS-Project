@@ -7,6 +7,7 @@ import HomeView from '@/views/HomeView.vue'
 import AboutView from '@/views/AboutView.vue'
 import PromotionView from '@/views/PromotionView.vue'
 import RegisterView from '@/views/RegisterView.vue'
+import LoginView from '@/views/LoginView.vue'
 
 //lazy load - renderuje się tylko gdy jest potrzebny a nie z góry
 
