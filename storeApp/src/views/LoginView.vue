@@ -1,7 +1,7 @@
 <template>
 	<AppLoader v-show="isLoading" />
 
-	<form @onSubmit="onSubmit" v-show="!isLogged" class="login-component">
+	<form @submit.prevent="onSubmit" v-show="!isLogged" class="login-component">
 		<h1>login</h1>
 		<div v-show="error" style="color: red">{{ error }}</div>
 
