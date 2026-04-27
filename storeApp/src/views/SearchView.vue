@@ -1,7 +1,14 @@
 <template>
-    <div class="products-frame">
-        <ProductTile v-for="product in products"  :key="product.id" :product="product"/>
-    </div>
+	<form @submit="onSubmit">
+		<input v-model="name" />
+		<select v-model="category" />
+		<select v-model="sort" />
+		<select v-model="dir" />
+		<button type="submit">Search</button>
+	</form>
+	<div class="products-frame">
+		<ProductTile v-for="product in products" :key="product.id" :product="product" />
+	</div>
 </template>
 
 <script>
@@ -24,11 +31,11 @@ export default {
 
 <style lang="css" scoped>
 .products-frame {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 20px;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 </style>
