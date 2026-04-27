@@ -6,7 +6,7 @@
     <button @click="exists = false; registered = false;">Zarejestruj się</button>
   </div>
 
-  <form @submit.prevent="onSubmit" v-show="!exists && !registered" class="register-component">
+  <form @onSubmit="onSubmit" v-show="!exists && !registered" class="register-component">
     <h1>Register</h1>
     <div v-show="error" style="color: red;">{{ error }}</div>
     

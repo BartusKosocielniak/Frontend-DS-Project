@@ -1,7 +1,7 @@
 <template>
 	<AppLoader v-show="isLoading" />
 
-	<form @submit.prevent="onSubmit" v-show="!isLogged" class="login-component">
+	<form @onSubmit="onSubmit" v-show="!isLogged" class="login-component">
 		<h1>login</h1>
 		<div v-show="error" style="color: red">{{ error }}</div>
 
@@ -30,7 +30,6 @@ export default {
 		AppLoader,
 	},
 	computed: {
-		// Zmieniłem nazwę na bardziej logiczną
 		isFormValid() {
 			return this.email.length > 3 && this.password.length >= 3
 		},
@@ -43,7 +42,6 @@ export default {
       else return false
     }
 	},
-	// KLUCZOWE: Metody muszą być w tym obiekcie!
 	methods: {
 		onSubmit(e) {
 			e.preventDefault()
