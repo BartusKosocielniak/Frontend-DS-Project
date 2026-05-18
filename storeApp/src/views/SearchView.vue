@@ -15,13 +15,36 @@
 import ProductTile from '@/components/ProductTile.vue';
 
 export default {
+	data() {
+		return {
+			name: '',
+			category: '',
+			sort: '',
+			dir: '',
+		}
+	},
 	created() {
-		this.$store.dispatch('FETCH_PRODUCTS')
+		this.$store.dispatch("FETCH_PRODUCTS", {});
+		// this.$store.dispatch("FETCH_PRODUCTS", options);
 	},
 	computed: {
 		products() {
 			return this.$store.getters.GET_PRODUCTS_LIST
 		},
+	},
+	methods: {
+		onSubmit(e) {
+			e.preventDefault()
+		
+			const options = {
+				name: this.name,
+				category: this.category,
+				_sort: this.sort,
+				_order:this.dir
+			}
+			console.log('methods', options)
+			this.$store.dispatch("FETCH_PRODUCTS", options);
+		}
 	},
 	components: {
 		ProductTile

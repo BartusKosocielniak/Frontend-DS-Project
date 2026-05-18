@@ -40,9 +40,9 @@ const products = {
 
 	// tu zapytania do serwera z pomocą naszego api
 	actions: {
-		FETCH_PRODUCTS({ state, commit }) {
+		FETCH_PRODUCTS({ state, commit }, options) {
 			// najpierw ustawiamy stan ładowania na true (czyli dane się ładują, teraz mógłby się pokazywać loader)
-
+			console.log("options", options)
 			commit('SET_PRODUCTS_LOADING', true)
 
 			// potem wywołujemy funkcję z api, która
@@ -50,7 +50,7 @@ const products = {
 			// w razie błędu ustawia error w store (catch)
 			// niezależnie od błędu lub jego braku (finally), kończy loading
 
-			getProducts()
+			getProducts(options)
 				.then(data => {
 					commit('SET_PRODUCTS_LIST', data)
 				})
