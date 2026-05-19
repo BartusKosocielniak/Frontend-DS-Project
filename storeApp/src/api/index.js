@@ -15,12 +15,13 @@ import axios from "axios"
 
 // })
 
-const get = (url, params) => new Promise((resolve, reject) => {
+const get = (url, params={}) => new Promise((resolve, reject) => {
   console.log(params, "csdfsdf")
   setTimeout(() => {
     axios.get(url, {
       // KLUCZOWY DODATEK:
-      withCredentials: true 
+      params,
+      withCredentials: true,
     })
     //todo dodac tutaj jakies paramsy
     .then(response => {
@@ -81,7 +82,7 @@ const logoutUser = () => post(`http://localhost:8080/logoutUser`);
 
 const getCurrentUser = () => get(`http://localhost:8080/getCurrentUser`);
 
-const getProducts = (options = {}) => get(`http://localhost:8080/products`, { params: options });
+const getProducts = (options = {}) => get(`http://localhost:8080/products`, options );
 export {
 
     getPromotions,

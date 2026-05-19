@@ -18,7 +18,7 @@ export default {
 	data() {
 		return {
 			name: '',
-			category: '',
+			category: 'LAPTOP',
 			sort: '',
 			dir: '',
 		}
