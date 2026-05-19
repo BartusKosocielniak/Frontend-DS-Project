@@ -1,5 +1,4 @@
 <template>
-    <AppLoader v-show="promotionLoading" />
     {{ promotionObject.longDescription }}
     <div class="product-frame">
         <ProductTile v-for="product in promotionObject.items" :key="product.id" :product="product" />
@@ -13,13 +12,9 @@
 </template>
 
 <script>
-import AppLoader from '@/components/AppLoader.vue';
 import ProductTile from '@/components/ProductTile.vue';
 export default {
         data() {
-        return {
-            promotionLoading: true
-        }
     },
     created() {
         this.$store.dispatch("FETCH_PROMOTION", this.$route.params.id);
@@ -27,14 +22,12 @@ export default {
     },
     computed: {
         promotionObject() {
-            this.promotionLoading = this.$store.getters.GET_PROMOTION_LOADING
             return this.$store.getters.GET_PROMOTION_OBJECT;
         },
 
     },
     components: {
         ProductTile,
-        AppLoader
     },
 
 

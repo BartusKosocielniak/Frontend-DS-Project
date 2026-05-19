@@ -1,6 +1,5 @@
 <template>
     <div>
-        <AppLoader v-show="promotionLoading" />
         <RouterLink v-for="promotion in promotionsList" :to="`/promotion/${promotion.id}`" :key="promotion.id">
             <PromotionTile v-bind:promotion="promotion" />
         </RouterLink>
@@ -8,16 +7,13 @@
 </template>
 
 <script>
-import AppLoader from '@/components/AppLoader.vue';
 import PromotionTile from '../components/PromotionTile.vue';
 
 
 export default {
 
     data() {
-        return {
-            promotionLoading: true
-        }
+        return {}
     },
 
     mounted() {
@@ -26,7 +22,6 @@ export default {
     },
     computed: {
         promotionsList() {
-            this.promotionLoading = this.$store.getters.GET_PROMOTIONS_LOADING
             console.log("crazyyy" + this.$store.getters.GET_PROMOTIONS_LIST)
             return this.$store.getters.GET_PROMOTIONS_LIST;
         },
@@ -34,7 +29,6 @@ export default {
     },
     components: {
         PromotionTile,
-        AppLoader
     },
 }
 </script>

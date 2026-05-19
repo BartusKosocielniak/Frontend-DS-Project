@@ -1,7 +1,6 @@
 <template>
 	<div class="nav">
 		<div class="routing">
-			<AppLoader v-show="userLoading" />
 			<RouterLink class="nav-element" to="/" exact>Home</RouterLink>
 			<RouterLink class="nav-element" to="/about">About</RouterLink>
 			<RouterLink class="nav-element" to="/nnn">Not found</RouterLink>
