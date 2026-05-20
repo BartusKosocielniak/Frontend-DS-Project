@@ -28,7 +28,7 @@ export default {
 	},
 	computed: {
 		isLoading() {
-			if(this.$store.getters.GET_PRODUCTS_LOADING || this.$store.getters.GET_PROMOTION_LOADING|| this.$store.getters.GET_CURRENT_USER_LOADING)
+			if(this.$store.getters.GET_PRODUCTS_LOADING || this.$store.getters.GET_PROMOTION_LOADING|| this.$store.getters.GET_CURRENT_USER_LOADING || this.$store.getters.GET_CATEGORIES_LOADING)
 				return true
 			else return false
 			

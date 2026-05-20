@@ -83,6 +83,9 @@ const logoutUser = () => post(`http://localhost:8080/logoutUser`);
 const getCurrentUser = () => get(`http://localhost:8080/getCurrentUser`);
 
 const getProducts = (options = {}) => get(`http://localhost:8080/products`, options );
+
+const getCategories = () => get(`http://localhost:8080/categories`)
+
 export {
 
     getPromotions,
