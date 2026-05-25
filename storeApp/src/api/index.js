@@ -23,7 +23,7 @@ const get = (url, params={}) => new Promise((resolve, reject) => {
       params,
       withCredentials: true,
     })
-    //todo dodac tutaj jakies paramsy
+
     .then(response => {
       console.log("data", response.data);
       resolve(response.data);
@@ -95,6 +95,6 @@ export {
     loginUser,
     logoutUser,
     getCurrentUser,
-    getProducts
-    //tu będą pozostałe metody
+    getProducts,
+    getCategories
 }

@@ -10,8 +10,7 @@ const categories = {
 
         }
     },
-//todo zrob to ladnie :))
-//todo popraw bledy ktore wychodza w console w broweser
+
 
 	mutations: {
 		SET_CATEGORIES_LIST(state, newCategories) {
@@ -40,7 +39,7 @@ const categories = {
 	},
 
 	actions: {
-		FETCH_PRODUCTS({ state, commit }) {
+		FETCH_CATEGORIES({ state, commit }) {
 			commit('SET_CATEGORIES_LOADING', true)
 
 
