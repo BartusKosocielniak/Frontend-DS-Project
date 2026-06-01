@@ -5,6 +5,7 @@ const products = {
 	state() {
 		return {
 			productsList: [],
+			totalProducts: 0,
 			productsLoading: false,
 			productsError: null,
 		}
@@ -13,8 +14,8 @@ const products = {
 	//mutations czyli setters
 	mutations: {
 		SET_PRODUCTS_LIST(state, newProducts) {
-            console.log("pis pis pisss");
-            console.log(newProducts);
+			console.log("pis pis pisss");
+			console.log(newProducts);
 			state.productsList = newProducts
 		},
 		SET_PRODUCTS_LOADING(state, loading) {
@@ -23,6 +24,8 @@ const products = {
 		SET_PRODUCTS_ERROR(state, error) {
 			state.productsError = error
 		},
+		SET_PRODUCTS_LIST(state, data) { state.productsList = data },
+		SET_TOTAL_PRODUCTS(state, total) { state.totalProducts = total }
 	},
 
 	//getters
@@ -52,7 +55,8 @@ const products = {
 
 			getProducts(options)
 				.then(data => {
-					commit('SET_PRODUCTS_LIST', data)
+					commit("SET_PRODUCTS_LIST", data.data); // Przypisuje tablicę z klucza 'data'
+					commit("SET_TOTAL_PRODUCTS", data.total); // Przypisuje liczbę z klucza 'total'
 				})
 				.catch(error => {
 					commit('SET_PRODUCTS_ERROR', 'server error!!!' + error)

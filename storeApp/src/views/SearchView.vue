@@ -15,6 +15,7 @@
 		</select>
 		<button type="submit">Search</button>
 	</form>
+	<AppPagination></AppPagination>
 	<div class="products-frame">
 		<ProductTile v-for="product in products" :key="product.id" :product="product" />
 	</div>
@@ -22,6 +23,7 @@
 
 <script>
 import ProductTile from '@/components/ProductTile.vue';
+import AppPagination from '@/components/AppPagination.vue';
 
 export default {
 	data() {
@@ -68,7 +70,8 @@ export default {
 		}
 	},
 	components: {
-		ProductTile
+		ProductTile,
+		AppPagination
 	},
 }
 </script>
