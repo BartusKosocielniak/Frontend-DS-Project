@@ -5,7 +5,7 @@ const products = {
 	state() {
 		return {
 			productsList: [],
-			totalProducts: 0,
+			totalProducts: null,
 			productsLoading: false,
 			productsError: null,
 		}
@@ -39,6 +39,9 @@ const products = {
 		GET_PRODUCTS_ERROR(state) {
 			return state.productsError
 		},
+		GET_TOTAL_PRODUCTS(state){
+			return state.totalProducts
+		}
 	},
 
 	// tu zapytania do serwera z pomocą naszego api
@@ -55,8 +58,9 @@ const products = {
 
 			getProducts(options)
 				.then(data => {
-					commit("SET_PRODUCTS_LIST", data.data); // Przypisuje tablicę z klucza 'data'
 					commit("SET_TOTAL_PRODUCTS", data.total); // Przypisuje liczbę z klucza 'total'
+					commit("SET_PRODUCTS_LIST", data.data); // Przypisuje tablicę z klucza 'data'
+					console.log("tooooooooooootal", data.total);
 				})
 				.catch(error => {
 					commit('SET_PRODUCTS_ERROR', 'server error!!!' + error)

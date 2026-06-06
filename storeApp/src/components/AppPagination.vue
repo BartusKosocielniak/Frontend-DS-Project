@@ -1,74 +1,66 @@
-<!-- todo to jest jak narazie niedkonczony przyklad -->
 <template>
-    <div>
+  <div v-if="totalPages > 1">
+    <button 
+      :disabled="currentPage === 1" 
+      @click="changePage(currentPage - 1)"
+    >
+      Poprzednia
+    </button>
 
-        <h3>1. najprostsze użycie watchera</h3>
-        <button @click="isActive = !isActive">
-            Przełącznik jest: {{ isActive ? 'WŁĄCZONY' : 'WYŁĄCZONY' }} </button>
+    <button 
+      v-for="page in totalPages" 
+      :key="page"
+      :style="page === currentPage ? 'font-weight: bold; border-color: black;' : ''"
+      @click="changePage(page)"
+    >
+      {{ page }}
+    </button>
 
-        <h3>2. inne użycie watchera</h3>
-        <h2>Licznik: {{ counter }}</h2>
-        <button @click="counter++">Zwiększ o 1</button>
-        <button @click="counter--">Zmniejsz o 1</button>
-        <h1>{{ message }}</h1>
-
-        <h3>3. jak nasłuchiwać w aplikacji na zmiany w urlu</h3>
-        <h1>test: {{ test }}</h1>
-        <RouterLink :to="{ query: { test: 1 } }">ustaw query test=1</RouterLink> |
-        <RouterLink :to="{ query: { test: 5 } }">ustaw query test=5</RouterLink>
-
-        <h3>4. jak zmieniac url routera z aplikacji</h3>
-        <input v-model="info" placeholder="wpisz info" />
-        <button @click="updateUrl">Zaktualizuj URL</button>
-    </div>
+    <button 
+      :disabled="currentPage === totalPages" 
+      @click="changePage(currentPage + 1)"
+    >
+      Następna
+    </button>
+  </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            isActive: false,
-            counter: 0,
-            message: "",
-            test: 1,
-            info: ""
-        };
+  name: 'AppPagination',
+  props: {
+    currentPage: {
+      type: Number,
+      default: 1
     },
-
-    watch: {
-        // przykład 1 - nazwa funkcji musi być taka sama jak nazwa zmiennej: isActive
-        isActive(newVal) {
-            console.log("Watcher isActive odpalił:", newVal);
-            alert("Ktoś kliknął przełącznik!" + newVal);
-        },
-
-        // przykład 2 - nazwa funkcji musi być taka sama jak nazwa zmiennej w data()
-        counter(newValue, oldValue) {
-            console.log(`Zmiana z ${oldValue} na ${newValue}`);
-
-            if (newValue > 3) {
-                this.message = "Osiągnięto limit (3)!";
-            } else {
-                this.message = "";
-            }
-        },
-        // przykład 3 - obserwujemy konkretną ścieżkę wewnątrz obiektu routera
-        '$route.query.test': {
-            immediate: true, // sprawdzamy URL zaraz po starcie aplikacji
-            handler(val) {
-                alert(`URL się zmienił! Nowa wartość test=${val}`);
-                this.test = val || 1;
-            }
-        }
+    totalItems: {
+      type: Number,
+      default: 0
     },
-
-    methods: {
-        // ta metoda wpisuje nową wartość do paska adresu
-        updateUrl() {
-            this.$router.push({
-                query: { info: this.info }
-            });
-        }
+    limit: {
+      type: Number,
+      default: 10
+    },
+  },
+  computed: {
+    totalPages() {
+      return Math.ceil(this.totalItems / this.limit) || 1
     }
+  },
+  methods: {
+    changePage(page) {
+      if (page < 1 || page > this.totalPages) return
+
+      // Wstrzykujemy nową stronę do URL, nie niszcząc filtrów wyszukiwania
+      this.$router.push({
+        query: {
+          ...this.$route.query,
+          _page: page
+        }
+      }).catch(err => {
+        if (err.name !== 'NavigationDuplicated') console.error(err)
+      })
+    }
+  }
 }
 </script>
